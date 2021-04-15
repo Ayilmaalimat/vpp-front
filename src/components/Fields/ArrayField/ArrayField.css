@@ -1,0 +1,38 @@
+.arrayField__container{
+    display: flex;
+    flex-wrap: wrap;
+}
+.arrayField__item{
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    margin: 10px 0;
+}
+.arrayField__addItemBtn{
+    border: 1px solid #FFC822;
+    border-radius: 5px;
+    padding: 8px 12px;
+   align-self: flex-start;
+    color: #353535;
+    font-size: 12px;
+    margin: 10px 0;
+    max-width: 500px;
+}
+.arrayField__addItemBtn input{
+    width: 530px;
+}
+.arrayField__removeItemBtn{
+    position: absolute;
+    right: -30px;
+    top: 65%;
+}
+.arrayField__plusItemBtn{
+    position: absolute;
+    right: -32px;
+    top: 30%;
+}
+.arrayField__addItemBtn,
+.arrayField__removeItemBtn,
+.arrayField__plusItemBtn{
+    cursor: pointer;
+}

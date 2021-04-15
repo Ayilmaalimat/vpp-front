@@ -1,0 +1,42 @@
+.background-selector__wrapper{
+    position: absolute;
+    right: 0;
+
+}
+.background-selector{
+    background: #ffffff;
+    border-radius: 15px 0 0 15px;
+    transition: .5s;
+    position: relative;
+    padding: 15px 0;
+    user-select: none!important;
+    outline: none;
+}
+.background-selector__btn{
+    cursor: pointer;
+    padding: 5px;
+    width: 40px;
+    height: 40px;
+    border-radius: 20% 0 0 20%;
+    position: absolute;
+    background: #ffffff;
+    top: 50%;
+    left: -40px;
+    transform: translate(0,-50%);
+}
+.background-selector__btn img{
+    width: 100%;
+    height: 100%;
+}
+
+
+.background-selector__item{
+    display: flex;
+    align-items: center;
+    margin: 10px 10px 10px 20px;
+    cursor: pointer;
+    white-space: nowrap;
+}
+.background-selector__item div{
+    margin-right: 10px;
+}
