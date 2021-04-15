@@ -1,0 +1,1 @@
+export const WRITE_FORM_TITLE = 'WRITE_FORM_TITLE'
