@@ -3,7 +3,7 @@ export const formFieldsConfig = [
     label: "Норма расхода на 1 человека в месяц кг/месяц",
     placeholder: "Норма расхода на 1 человека в месяц кг/месяц",
     required: "Заполните это поле",
-    key: 'cost'
+    key: 'consumption_rate'
     },
     {
         label: "Произведено, тонна",
@@ -15,13 +15,13 @@ export const formFieldsConfig = [
         label: "Запасы в целом по населению, тонна",
         placeholder: "Запасы в целом по населению, тонна",
         required: "Заполните это поле",
-        key: 'stocks_by_population'
+        key: 'stock_by_population'
     },
     {
         label: "Запасы в торговых точках, тонна",
         placeholder: "Запасы в торговых точках, тонна",
         required: "Заполните это поле",
-        key: 'stocks_by_trading'
+        key: 'outlet_stock'
     },
     {
         label: "Цена, кг/сом",

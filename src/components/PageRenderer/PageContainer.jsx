@@ -2,10 +2,7 @@ import React, {useEffect} from 'react'
 import { Route, Switch} from "react-router-dom";
 import FormContainer from "../FormGenerator/FormContainer";
 import TableContainer from "../Table/TableContainer";
-import {writeFormTitle} from "../../store/reducers/formReducer";
-import {store} from '../../store/store'
-import {useDispatch} from "react-redux";
-
+import '../../styles/page-renderer.scss'
 
 
 const PageContainer = ({
@@ -32,21 +29,13 @@ const PageContainer = ({
 
     editing=true,
 
-    title=false,
 
                       })=>{
-    const dispatch = useDispatch()
-
-    const getFormTitleFromId = id => {
-        const title = tableData.find(item=> item.key==id)
-        dispatch(writeFormTitle(title?.product))
-    }
     return(
         <>
-            {title &&<span className='page-content__title'>{pageTitle}</span>}
             <Switch>
                         <Route exact path={`/${pageUrl}`}>
-                            <span className='page-content__title'>{pageTitle}</span>
+                            { pageTitle && <div className='page-renderer__title'>{pageTitle}</div>}
                             <TableContainer
                                 isLoading={isLoading}
                                 getDataFunc={getDataFunc}
@@ -69,7 +58,6 @@ const PageContainer = ({
                                 optionsForSelector={optionsForSelectorData}
                                 isLoading={isLoading}
                                 clearFunc = {clearFunc}
-                                getFormTitleFromId = {getFormTitleFromId}
                             />
                         </Route>
 

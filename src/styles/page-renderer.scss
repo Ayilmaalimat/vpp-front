@@ -1,0 +1,12 @@
+.page-renderer{
+
+  &__title{
+    padding: 10px;
+    width: 100%;
+    font-size: 2em;
+    font-weight: bold;
+    background: #ffffff;
+    border-radius: 15px;
+    margin-bottom: 15px;
+  }
+}

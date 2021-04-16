@@ -17,19 +17,46 @@ export const tableData = [
     },
     {
         key: 5,
-        product: 'Мясо и мясные продукты',
-    },
-    {
-        key: 6,
         product: 'Говядина',
     },
     {
-        key: 7,
+        key: 6,
         product: 'Конина',
     },
     {
-        key: 8,
+        key: 7,
         product: 'Баранина(козлятина)',
     },
-
+    {
+        key: 8,
+        product: 'Свинина',
+    },
+    {
+        key: 9,
+        product: 'Мясо домашней птицы',
+    },
+    {
+        key: 10,
+        product: 'Растительное масло',
+    },
+    {
+        key: 11,
+        product: 'Сахар',
+    },
+    {
+        key: 12,
+        product: 'Соль',
+    },
+    {
+        key: 13,
+        product: 'Яйца, тыс. штук',
+    },
+    {
+        key: 14,
+        product: 'Рис',
+    },
+    {
+        key: 15,
+        product: 'Картофель',
+    },
 ];

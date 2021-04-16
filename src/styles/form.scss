@@ -1,10 +1,10 @@
 .former{
   &__container{
     margin: 0 auto;
-   width: 80%;
+    width: 80%;
     background: #ffffff;
     padding: 60px;
-    border: 3px solid rgba(0,0,0,.08);
+    border-radius: 15px;
   }
   &__fields{
     display: flex;
@@ -29,4 +29,48 @@
       border: 1px solid #c6c6c6;
     }
   }
+}
+.form-preloader{
+  margin: 0 auto;
+  width: 80%;
+  background: #ffffff;
+  padding: 60px;
+  border-radius: 15px;
+  height: 610px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  &__field{
+    position: relative;
+    background: #c6c6c6;
+    border-radius: 15px;
+    padding: 13px;
+    margin: 30px 0;
+    overflow: hidden;
+
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 10%;
+      height: 100%;
+      background-color: rgba(#fff, 0.6);
+      transform: translateX(0) skewX(-45deg);
+      &{
+        animation: move-light 1.5s infinite;
+      }
+    }
+  }
+}
+@keyframes move-light{
+from {
+  left: 0;
+  transform: translateX(-5%) skewX(-45deg);
+}
+to {
+  left: 100%;
+  transform: translateX(100%) skewX(-45deg);
+}
 }

@@ -3,6 +3,7 @@ import {withRouter} from "react-router-dom";
 import Former from "./Former";
 import Preloader from "../Preloader/Preloader";
 import '../../styles/form.scss'
+import FormPreloader from "./FormPreloader";
 
 
 const FormContainer = ({
@@ -15,13 +16,8 @@ const FormContainer = ({
         if(props.arrayOfgetSelectorDataFuncs) {
             props.arrayOfgetSelectorDataFuncs.map(item=>item()) //вызов масива функций get запросов для полей-селекторов
         }
-        // if(match.params?.id )  {
-        //     props.getByIdFunc(match.params.id)
-        // }
-    },[])
-    useEffect(()=>{
-        if(match.params?.id) {
-            props.getFormTitleFromId(match.params.id)
+        if(match.params?.id )  {
+            props.getByIdFunc(match.params.id)
         }
     },[])
     const handleSubmit = async values=>{
@@ -36,9 +32,10 @@ const FormContainer = ({
 
     return(
         !isLoading
-            ?
-            <Former handleSubmit={handleSubmit}  {...props}/>
-            : <Preloader />
+          ?
+        <Former handleSubmit={handleSubmit}  {...props}/>
+           :
+    <FormPreloader />
 
     )
 }

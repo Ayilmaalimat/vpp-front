@@ -1,15 +1,18 @@
-import React from 'react'
+import React, {useState} from 'react'
 import { Form, Formik} from "formik";
 import * as Yup from "yup";
 import FormInput from "./FormInput";
 import {validationGenerator} from "./validationGenerator";
 import {Button} from "react-bootstrap";
-import { useSelector} from "react-redux";
-
+import ModalDialog from './ModalDialog'
+import Preloader from "../Preloader/Preloader";
+import { useHistory } from "react-router-dom";
 
 
 
 const Former = (props)=>{
+    const [visibleModal,setVisibleModal] = useState(false)
+    let history = useHistory();
     const inputs = ()=>{
         let result=[]
         const initValsKeys =  Object.keys(props.initialVals)
@@ -61,30 +64,35 @@ const Former = (props)=>{
     }
     const array= Object.keys(props.initialVals)
     const schema = validationGenerator(array,props.inputConfig)
-    const formTitle = useSelector(state=>state.form.formTitle)
     return(
         <>
         <div className='former__container'>
             {props.formTitle && <div className={'former__title'}>
-                <h2>{props.formTitle}. {formTitle}</h2>
+                <h2>{props.formTitle}</h2>
             </div>}
             <Formik
                 initialValues={props.initialVals}
                 validationSchema={Yup.object(schema)}
-                onSubmit={ async (values,e)=>{
-                    await props.handleSubmit(values)
-                }}
+                onSubmit={ async (values,e)=>props.handleSubmit(values)}
             >
                 {({handleSubmit,errors,values}) =>{
                     return (
                         <Form>
+                            <ModalDialog
+                                visible={visibleModal}
+                                onOk={handleSubmit}
+                                setVisible={setVisibleModal}
+                                text={'Сохранить изменения?'}
+                            />
                             <div className={"former__fields"}>
                                 {styledInputs(inputs())}
 
                             </div>
                         <div className="former__btns">
-                            <Button variant="success">Сохранить</Button>
-                            <Button variant="danger">Отмена</Button>
+                            <Button variant="success"
+                            onClick={()=>setVisibleModal(true)}
+                            >Сохранить</Button>
+                            <Button variant="danger" onClick={()=>history.push(props.urlToTable)}>Отмена</Button>
                         </div>
 
                         </Form>
